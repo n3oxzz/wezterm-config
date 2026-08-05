@@ -1,3 +1,4 @@
+---@meta wezterm
 -- Pull in the wezterm API
 local wezterm = require 'wezterm';
 -- This will hold the configuration
@@ -6,7 +7,7 @@ local config = wezterm.config_builder();
 config.font = wezterm.font("MesloLGS Nerd Font Mono");
 config.font_size = 13.0;
 
--- window geometry 
+-- window geometry
 config.initial_rows = 20; -- 660 px
 config.initial_cols = 70; -- 1182 px
 
@@ -27,12 +28,13 @@ config.macos_window_background_blur = 20;
 config.color_scheme = "Adventure Time"
 -- config.color_scheme = 'Batman'
 
--- config.keys = {
---   {
---     key = "X",
---     mods = "CTRL|SHIFT",
---     action = wezterm.action.QuitApplication,
---   },
--- }
+config.keys = {
+    {
+        key = "w",
+        mods = "CMD|CTRL",
+        action = wezterm.action.CloseCurrentPane { confirm = true }
+
+    },
+}
 
 return config
