@@ -4,6 +4,11 @@ local wezterm = require 'wezterm';
 -- This will hold the configuration
 local config = wezterm.config_builder();
 
+if (string.find(wezterm.target_triple, "windows")) then
+    config.wsl_domains = wezterm.default_wsl_domains();
+end
+
+
 config.font = wezterm.font("MesloLGS Nerd Font Mono");
 config.font_size = 13.0;
 
@@ -25,7 +30,7 @@ config.enable_tab_bar = false;
 config.macos_window_background_blur = 20;
 
 -- config.color_scheme = "Tokyo Night"
-config.color_scheme = "Adventure Time"
+config.color_scheme = "Adventure Time";
 -- config.color_scheme = 'Batman'
 
 config.keys = {
@@ -37,4 +42,4 @@ config.keys = {
     },
 }
 
-return config
+return config;
